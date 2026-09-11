@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "run_id": "tpp-gaze-multiple-example",
+  "model": {
+    "id": "tpp_gaze",
+    "variant": "transformer",
+    "options": {
+      "tpp_gaze": {
+        "upstream_root": "../tppgaze",
+        "model_config_path": "../tppgaze/data/config.yaml",
+        "temperature": null,
+        "launcher": ["container/run_tppgaze_worker.sh"],
+        "worker_timeout_s": 900,
+        "startup_timeout_s": 300,
+        "native_time_unit": "milliseconds",
+        "temporal_scale_to_seconds": 0.001,
+        "safety_max_fixations": 512,
+        "native_artifact_policy": "preserve-json"
+      }
+    },
+    "checkpoint_path": "../../../tppgaze/checkpoints/model_transformer.pth",
+    "checkpoint_fingerprint": "sha256:f925a322932438947e27ed407a40649a94275c120f12e4ae201ee2665024ce9d",
+    "upstream_code_ref": "https://github.com/phuselab/tppgaze.git",
+    "upstream_commit": "59cf572ba679b8e3351da29dbbbd2ff66bcfa552"
+  },
+  "dataset": {
+    "id": "local-single-image",
+    "version": null,
+    "split": "smoke",
+    "root": null,
+    "root_fingerprint": null,
+    "items": [
+      {
+        "item_id": "upstream-example-1009",
+        "image_ref": "../tppgaze/data/1009.jpg",
+        "image_width": 800,
+        "image_height": 600,
+        "task_text": null,
+        "target_description": null,
+        "observer_id": null,
+        "observer_metadata": {}
+      }
+    ],
+    "item_subset": ["upstream-example-1009"]
+  },
+  "request": {
+    "task_text": null,
+    "target_description": null,
+    "observer_id": null,
+    "observer_metadata": {},
+    "num_samples": 5,
+    "base_seed": 100,
+    "seed_strategy": "fixed_per_item",
+    "max_fixations": 64,
+    "time_horizon_s": 0.5
+  },
+  "device": "cuda",
+  "output_root": "../../runs",
+  "run_policy": "create",
+  "tags": ["tpp-gaze", "free-viewing", "multiple-simulations"],
+  "notes": "Five distinct seeded records at a 0.5-second horizon; run from repository root.",
+  "environment": {
+    "name": "tppgaze-cu121-py310",
+    "image_digest": null
+  }
+}

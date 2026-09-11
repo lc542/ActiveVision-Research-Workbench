@@ -1,0 +1,46 @@
+Bootstrap: docker
+From: python:3.10.14-slim-bookworm
+
+%labels
+    org.activevision.component "gazexplain-worker"
+    org.activevision.python "3.10"
+    org.activevision.pytorch "2.1.2+cu121"
+    org.activevision.transformers "4.36.2"
+    org.activevision.gazexplain.commit "443f4aaa1c53f6804a3a503cd2842c0b5d225da4"
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+    export PYTHONUNBUFFERED=1
+    export PYTHONDONTWRITEBYTECODE=1
+    export HF_HUB_OFFLINE=1
+    export TRANSFORMERS_OFFLINE=1
+    export TOKENIZERS_PARALLELISM=false
+    export HF_HOME=/tmp/avrw-gazexplain-huggingface
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends libglib2.0-0 libgl1
+    rm -rf /var/lib/apt/lists/*
+    python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
+    python3 -m pip install --no-cache-dir \
+        torch==2.1.2 torchvision==0.16.2 \
+        --index-url https://download.pytorch.org/whl/cu121
+    python3 -m pip install --no-cache-dir \
+        huggingface-hub==0.20.3 numpy==1.26.3 pillow==10.2.0 \
+        safetensors==0.4.1 tokenizers==0.15.0 transformers==4.36.2
+
+    mkdir -p /opt/avrw/gazexplain-assets/roberta-base
+    mkdir -p /opt/avrw/gazexplain-assets/blip-image-captioning-base
+    python3 -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='FacebookAI/roberta-base', revision='e2da8e2f811d1448a5b465c236feacd80ffbac7b', local_dir='/opt/avrw/gazexplain-assets/roberta-base', local_dir_use_symlinks=False, allow_patterns=['config.json','merges.txt','tokenizer.json','tokenizer_config.json','vocab.json'])"
+    python3 -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Salesforce/blip-image-captioning-base', revision='82a37760796d32b1411fe092ab5d4e227313294b', local_dir='/opt/avrw/gazexplain-assets/blip-image-captioning-base', local_dir_use_symlinks=False, allow_patterns=['config.json','special_tokens_map.json','tokenizer.json','tokenizer_config.json','vocab.txt'])"
+    python3 -c "from torch.hub import download_url_to_file; download_url_to_file('https://download.pytorch.org/models/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth', '/opt/avrw/gazexplain-assets/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth', hash_prefix='bf2d0c1e', progress=True)"
+    echo "bf2d0c1efbc936eeee2bc95a48e80ebc86b891f61b0106485937fc29f9315fc0  /opt/avrw/gazexplain-assets/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth" | sha256sum -c -
+    find /opt/avrw/gazexplain-assets -type f -exec chmod 0444 {} +
+
+%test
+    python3 -c "import numpy, PIL, safetensors, torch, torchvision, transformers"
+    python3 -c "import sys, torch, transformers; assert sys.version_info[:2] == (3, 10); assert torch.__version__.startswith('2.1.2'); assert transformers.__version__ == '4.36.2'"
+    test -f /opt/avrw/gazexplain-assets/roberta-base/config.json
+    test -f /opt/avrw/gazexplain-assets/blip-image-captioning-base/config.json
+    test -f /opt/avrw/gazexplain-assets/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth

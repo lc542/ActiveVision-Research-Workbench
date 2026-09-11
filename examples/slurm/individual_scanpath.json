@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "assignment_strategy": "balanced_by_image",
+  "account": "your-account",
+  "partition": null,
+  "job_name": "avrw-individual",
+  "shard_count": 8,
+  "max_parallel_tasks": 4,
+  "resources": {
+    "nodes": 1,
+    "tasks_per_node": 1,
+    "cpus_per_task": 4,
+    "gpus_per_node": 1,
+      "gpu_type": "h100",
+    "memory": "24G",
+    "time_limit": "00:30:00"
+  },
+  "environment": {
+    "name": "activevision-core+individualscanpath-worker",
+    "modules": [],
+    "launcher": [
+      "python"
+    ],
+    "apptainer_image": null,
+    "apptainer_gpu": false,
+    "bind_paths": []
+  },
+  "working_directory": "../..",
+  "dataset_roots": [
+    "../../../datasets/activevision/osie/data",
+    "../../../datasets/activevision/coco_search18/raw/extracted"
+  ],
+  "checkpoint_roots": [
+    "../../../IndividualScanpath/checkpoints"
+  ],
+  "log_directory": "../../runs/slurm-logs",
+  "email": null,
+  "mail_types": [],
+  "requeue": false,
+  "max_retries": 1,
+  "signal_seconds": 120,
+  "dependency_job_ids": []
+}

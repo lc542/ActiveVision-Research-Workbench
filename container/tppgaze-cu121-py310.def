@@ -1,0 +1,35 @@
+Bootstrap: docker
+From: nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04
+
+%labels
+    org.activevision.component "tpp-gaze-worker"
+    org.activevision.python "3.10"
+    org.activevision.pytorch "2.3.1+cu121"
+    org.activevision.tppgaze.commit "59cf572ba679b8e3351da29dbbbd2ff66bcfa552"
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+    export PYTHONUNBUFFERED=1
+    export PYTHONDONTWRITEBYTECODE=1
+    export MPLBACKEND=Agg
+    export MPLCONFIGDIR=/tmp/avrw-tppgaze-matplotlib
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        python3 python3-dev python3-pip
+    rm -rf /var/lib/apt/lists/*
+    python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
+    python3 -m pip install --no-cache-dir \
+        torch==2.3.1 torchvision==0.18.1 \
+        --index-url https://download.pytorch.org/whl/cu121
+    # The upstream requirements file is unpinned. These versions cover the
+    # imports used by the pinned inference code; visualization is never called.
+    python3 -m pip install --no-cache-dir \
+        numpy==1.26.4 omegaconf==2.3.0 pillow==10.3.0 matplotlib==3.8.4
+
+%test
+    python3 -c "import matplotlib, omegaconf, PIL"
+    python3 -c "import torch, torchvision; assert torch.__version__.startswith('2.3.1')"

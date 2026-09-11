@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: python:3.10.14-slim-bookworm
+
+%labels
+    org.activevision.component "individualscanpath-worker"
+    org.activevision.python "3.10"
+    org.activevision.pytorch "2.3.1+cu121"
+    org.activevision.individualscanpath.commit "50adc583144e910b2a520ca59f865e5581390938"
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+    export PYTHONUNBUFFERED=1
+    export PYTHONDONTWRITEBYTECODE=1
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends libglib2.0-0 libgl1
+    rm -rf /var/lib/apt/lists/*
+    python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
+    python3 -m pip install --no-cache-dir \
+        torch==2.3.1 torchvision==0.18.1 \
+        --index-url https://download.pytorch.org/whl/cu121
+    python3 -m pip install --no-cache-dir numpy==1.26.4 pillow==10.3.0
+
+%test
+    python3 -c "import numpy, PIL, torch, torchvision"
+    python3 -c "import sys, torch; assert sys.version_info[:2] == (3, 10); assert torch.__version__.startswith('2.3.1')"

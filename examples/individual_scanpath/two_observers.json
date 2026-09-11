@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "run_id": "individualscanpath-osie-two-observers",
+  "model": {
+    "id": "individualscanpath",
+    "variant": "chenlstm-osie",
+    "options": {
+      "individualscanpath": {
+        "upstream_root": "../IndividualScanpath",
+        "observer_mapping_path": "examples/individual_scanpath/osie_observers.json",
+        "observer_mapping_fingerprint": "sha256:9ca3b783e9fe401ca23c7fe77edd96228d32ab1e0fd5c8f834a1280225496296",
+        "unknown_observer_policy": "error",
+        "launcher": ["container/run_individual_scanpath_worker.sh"],
+        "worker_timeout_s": 900,
+        "startup_timeout_s": 300,
+        "min_fixations": 1,
+        "model_max_fixations": 16,
+        "native_artifact_policy": "preserve-json"
+      }
+    },
+    "checkpoint_path": "../../../IndividualScanpath/checkpoints/pretrained_models/ChenLSTM/OSIE/checkpoints/checkpoint_best.pth",
+    "checkpoint_fingerprint": "sha256:ce89bf36d0b49f9cdc73ae408a66085b2286666d8d9b249aa7c126ac001f0e3e",
+    "upstream_code_ref": "https://github.com/chenxy99/IndividualScanpath.git",
+    "upstream_commit": "50adc583144e910b2a520ca59f865e5581390938"
+  },
+  "dataset": {
+    "id": "osie",
+    "version": "source-release-unversioned",
+    "split": "smoke",
+    "root": "../../../datasets/activevision/osie/data",
+    "root_fingerprint": null,
+    "items": [
+      {
+        "item_id": "1001:subject-01",
+        "image_ref": "../datasets/activevision/osie/data/stimuli/1001.jpg",
+        "image_width": 800,
+        "image_height": 600,
+        "task_text": null,
+        "target_description": null,
+        "observer_id": "subject-01",
+        "observer_metadata": {"source_subject_index": 0}
+      },
+      {
+        "item_id": "1001:subject-02",
+        "image_ref": "../datasets/activevision/osie/data/stimuli/1001.jpg",
+        "image_width": 800,
+        "image_height": 600,
+        "task_text": null,
+        "target_description": null,
+        "observer_id": "subject-02",
+        "observer_metadata": {"source_subject_index": 1}
+      }
+    ],
+    "item_subset": null
+  },
+  "request": {
+    "task_text": null,
+    "target_description": null,
+    "observer_id": null,
+    "observer_metadata": {},
+    "num_samples": 2,
+    "base_seed": 17,
+    "seed_strategy": "fixed_per_item",
+    "max_fixations": 8,
+    "time_horizon_s": null
+  },
+  "device": "cuda",
+  "output_root": "../../runs",
+  "run_policy": "create",
+  "tags": ["individualscanpath", "osie", "observer-conditioned", "smoke"],
+  "notes": "Technical smoke only: use an explicit official image split definition for scientific evaluation.",
+  "environment": {
+    "name": "individualscanpath-cu121-py310",
+    "image_digest": null
+  }
+}

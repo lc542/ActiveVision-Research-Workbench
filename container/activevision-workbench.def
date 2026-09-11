@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: python:3.11-slim-bookworm
+
+%labels
+    Project ActiveVision-Research-Workbench
+    Component AVRW-core-and-dataset-adapters
+    Python 3.11
+
+%files
+    pyproject.toml /opt/activevision-workbench/pyproject.toml
+    LICENSE /opt/activevision-workbench/LICENSE
+    src /opt/activevision-workbench/src
+    tests /opt/activevision-workbench/tests
+    examples /opt/activevision-workbench/examples
+
+%environment
+    export PYTHONUNBUFFERED=1
+    export PYTHONDONTWRITEBYTECODE=1
+
+%post
+    set -eux
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y --no-install-recommends git
+    rm -rf /var/lib/apt/lists/*
+    python -m pip install --no-cache-dir "pip==26.2.1"
+    python -m pip install --no-cache-dir \
+        "numpy==2.4.6" \
+        "scipy==1.17.1"
+    python -m pip install --no-cache-dir /opt/activevision-workbench
+
+%test
+    python -m pip check
+    python -c "import activevision_workbench, numpy, scipy; print('imports ok')"
+    python -m unittest discover \
+        -s /opt/activevision-workbench/tests \
+        -v
+
+%runscript
+    exec activevision "$@"
+
+%help
+    ActiveVision Research Workbench core and AVRW-005 dataset adapters.
+
+    Run the CLI:
+      apptainer run activevision-workbench-py311.sif --help
+
+    Inspect a local dataset by bind-mounting it and invoking Python with
+    apptainer exec. Dataset files are not included in this image.

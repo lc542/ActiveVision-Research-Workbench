@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "run_id": "dummy-tiny-dataset-v1",
+  "model": {
+    "id": "dummy",
+    "variant": "deterministic-v1",
+    "options": {
+      "dummy": {
+        "explanation_prefix": "Tiny dataset example"
+      }
+    },
+    "checkpoint_path": null,
+    "checkpoint_fingerprint": null,
+    "upstream_code_ref": "builtin",
+    "upstream_commit": null
+  },
+  "dataset": {
+    "id": "tiny_gaze",
+    "version": "fixture-v1",
+    "split": "train",
+    "root": "../tests/fixtures/datasets/tiny_gaze",
+    "root_fingerprint": "configured:fixture-v1",
+    "items": [
+      {
+        "item_id": "scene-a",
+        "image_ref": "../tests/fixtures/datasets/tiny_gaze/images/wide.png",
+        "image_width": 100,
+        "image_height": 50,
+        "task_text": "find the yellow circle",
+        "target_description": "circle",
+        "observer_id": "observer-a",
+        "observer_metadata": {
+          "group": "fixture-a"
+        }
+      }
+    ],
+    "item_subset": null
+  },
+  "request": {
+    "task_text": null,
+    "target_description": null,
+    "observer_id": null,
+    "observer_metadata": {},
+    "num_samples": 2,
+    "base_seed": 17,
+    "seed_strategy": "increment_per_item",
+    "max_fixations": 3,
+    "time_horizon_s": 1.0
+  },
+  "device": "cpu",
+  "output_root": "../runs",
+  "run_policy": "create",
+  "tags": [
+    "example",
+    "dummy",
+    "tiny-dataset"
+  ],
+  "notes": "Legally redistributable synthetic AVRW-005 fixture.",
+  "environment": {
+    "name": "local-cpu",
+    "image_digest": null
+  }
+}

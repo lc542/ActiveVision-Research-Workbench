@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "dataset_id": "tiny_gaze",
+  "dataset_version": "fixture-v1",
+  "splits": {
+    "train": [
+      "scene-a"
+    ],
+    "validation": [
+      "scene-b"
+    ]
+  },
+  "items": [
+    {
+      "schema_version": 1,
+      "dataset_id": "tiny_gaze",
+      "dataset_version": "fixture-v1",
+      "official_split": "train",
+      "item_id": "scene-a",
+      "image_id": "wide",
+      "image_ref": "images/wide.png",
+      "image_width": 100,
+      "image_height": 50,
+      "scanpaths": [
+        {
+          "scanpath_id": "scene-a:observer-a",
+          "fixations": [
+            {
+              "x_px": 0.0,
+              "y_px": 0.0,
+              "x_norm": 0.0,
+              "y_norm": 0.0,
+              "sequence_index": 0,
+              "timestamp_s": 0.0,
+              "duration_s": 0.1,
+              "confidence": null,
+              "native_timing": {
+                "duration": 100,
+                "unit": "ms"
+              },
+              "native_metadata": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "x_px": 49.5,
+              "y_px": 24.5,
+              "x_norm": 0.5,
+              "y_norm": 0.5,
+              "sequence_index": 1,
+              "timestamp_s": 0.2,
+              "duration_s": 0.15,
+              "confidence": null,
+              "native_timing": {
+                "duration": 150,
+                "unit": "ms"
+              },
+              "native_metadata": {
+                "source": "synthetic"
+              }
+            }
+          ],
+          "observer_id": "observer-a",
+          "observer_metadata": {
+            "group": "fixture-a"
+          },
+          "task_text": "find the yellow circle",
+          "target_label": "circle",
+          "target_metadata": {
+            "target_present": true
+          },
+          "native_annotation": {
+            "uri": "annotations.json#/items/0/scanpaths/0",
+            "kind": "gaze_annotation",
+            "media_type": "application/json",
+            "checksum": null,
+            "metadata": {}
+          },
+          "warnings": [],
+          "native_metadata": {
+            "trial": 1
+          }
+        },
+        {
+          "scanpath_id": "scene-a:observer-b",
+          "fixations": [
+            {
+              "x_px": 99.0,
+              "y_px": 49.0,
+              "x_norm": 1.0,
+              "y_norm": 1.0,
+              "sequence_index": 0,
+              "timestamp_s": null,
+              "duration_s": 0.2,
+              "confidence": null,
+              "native_timing": {
+                "duration": 200,
+                "unit": "ms"
+              },
+              "native_metadata": {
+                "source": "synthetic"
+              }
+            }
+          ],
+          "observer_id": "observer-b",
+          "observer_metadata": {
+            "group": "fixture-b"
+          },
+          "task_text": "find the yellow circle",
+          "target_label": "circle",
+          "target_metadata": {
+            "target_present": true
+          },
+          "native_annotation": {
+            "uri": "annotations.json#/items/0/scanpaths/1",
+            "kind": "gaze_annotation",
+            "media_type": "application/json",
+            "checksum": null,
+            "metadata": {}
+          },
+          "warnings": [],
+          "native_metadata": {
+            "trial": 2
+          }
+        }
+      ],
+      "task_text": "find the yellow circle",
+      "target_label": "circle",
+      "target_metadata": {
+        "target_present": true
+      },
+      "target_boxes": [
+        {
+          "x_px": 15.0,
+          "y_px": 15.0,
+          "width_px": 20.0,
+          "height_px": 20.0,
+          "target_label": "circle",
+          "native_metadata": {
+            "source_format": "xywh"
+          }
+        }
+      ],
+      "target_masks": [],
+      "native_annotation_refs": [
+        {
+          "uri": "annotations.json#/items/0",
+          "kind": "dataset_annotation",
+          "media_type": "application/json",
+          "checksum": null,
+          "metadata": {}
+        }
+      ],
+      "warnings": [],
+      "native_metadata": {
+        "fixture_kind": "multiple_observers"
+      }
+    },
+    {
+      "schema_version": 1,
+      "dataset_id": "tiny_gaze",
+      "dataset_version": "fixture-v1",
+      "official_split": "validation",
+      "item_id": "scene-b",
+      "image_id": "tall",
+      "image_ref": "images/tall.png",
+      "image_width": 50,
+      "image_height": 100,
+      "scanpaths": [
+        {
+          "scanpath_id": "scene-b:observer-a",
+          "fixations": [
+            {
+              "x_px": 55.0,
+              "y_px": 75.0,
+              "x_norm": null,
+              "y_norm": null,
+              "sequence_index": 0,
+              "timestamp_s": 0.0,
+              "duration_s": null,
+              "confidence": null,
+              "native_timing": {},
+              "native_metadata": {
+                "coordinate_status": "out_of_bounds_preserved"
+              }
+            }
+          ],
+          "observer_id": "observer-a",
+          "observer_metadata": {
+            "group": "fixture-a"
+          },
+          "task_text": "find the white square",
+          "target_label": "square",
+          "target_metadata": {
+            "target_present": true
+          },
+          "native_annotation": {
+            "uri": "annotations.json#/items/1/scanpaths/0",
+            "kind": "gaze_annotation",
+            "media_type": "application/json",
+            "checksum": null,
+            "metadata": {}
+          },
+          "warnings": [
+            "out-of-bounds source fixation preserved"
+          ],
+          "native_metadata": {
+            "trial": 3
+          }
+        }
+      ],
+      "task_text": "find the white square",
+      "target_label": "square",
+      "target_metadata": {
+        "target_present": true
+      },
+      "target_boxes": [
+        {
+          "x_px": 15.0,
+          "y_px": 60.0,
+          "width_px": 20.0,
+          "height_px": 20.0,
+          "target_label": "square",
+          "native_metadata": {
+            "source_format": "xywh"
+          }
+        }
+      ],
+      "target_masks": [],
+      "native_annotation_refs": [
+        {
+          "uri": "annotations.json#/items/1",
+          "kind": "dataset_annotation",
+          "media_type": "application/json",
+          "checksum": null,
+          "metadata": {}
+        }
+      ],
+      "warnings": [
+        "contains one deliberate out-of-bounds fixture coordinate"
+      ],
+      "native_metadata": {
+        "fixture_kind": "different_image_size"
+      }
+    }
+  ]
+}

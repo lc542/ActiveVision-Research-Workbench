@@ -1,0 +1,63 @@
+{
+  "dataset_id": "golden_gaze",
+  "dataset_split": "test",
+  "explanation_text": null,
+  "fixations": [
+    {
+      "confidence": 1.0,
+      "duration_s": 0.12,
+      "native_metadata": {
+        "source": "golden"
+      },
+      "native_timing": {
+        "unit": "seconds"
+      },
+      "sequence_index": 0,
+      "timestamp_s": null,
+      "x_norm": 0.25,
+      "x_px": 24.75,
+      "y_norm": 0.5,
+      "y_px": 39.5
+    },
+    {
+      "confidence": 0.9,
+      "duration_s": 0.18,
+      "native_metadata": {
+        "source": "golden"
+      },
+      "native_timing": {
+        "unit": "seconds"
+      },
+      "sequence_index": 1,
+      "timestamp_s": null,
+      "x_norm": 0.75,
+      "x_px": 74.25,
+      "y_norm": 0.25,
+      "y_px": 19.75
+    }
+  ],
+  "item_id": "scene-001",
+  "model": {
+    "adapter_version": "0.1.0",
+    "checkpoint_id": null,
+    "model_id": "dummy",
+    "model_variant": "deterministic-v1",
+    "upstream_version": "builtin"
+  },
+  "native_artifacts": [],
+  "native_metadata": {
+    "fixture": "deterministic"
+  },
+  "observer_id": "observer-01",
+  "request_id": "req_5ba26594136f09d4fc87fae8be281baa92cbcb97d20a4532c7c3ccd240024ef3",
+  "run_id": "golden-run-v1",
+  "saliency_artifact": null,
+  "sample_id": "req_5ba26594136f09d4fc87fae8be281baa92cbcb97d20a4532c7c3ccd240024ef3:sample:0",
+  "sample_index": 0,
+  "schema_version": 1,
+  "seed": 17,
+  "stopping_reason": "completed",
+  "target_description": "yellow mug",
+  "task_text": "Find the yellow mug",
+  "warnings": []
+}

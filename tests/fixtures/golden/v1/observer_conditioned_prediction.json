@@ -1,0 +1,48 @@
+{
+  "dataset_id": "osie",
+  "dataset_split": "test",
+  "explanation_text": null,
+  "fixations": [
+    {
+      "confidence": 0.82,
+      "duration_s": 0.21,
+      "native_metadata": {
+        "model_observer_index": 0
+      },
+      "native_timing": {
+        "source": "duration sample",
+        "unit": "seconds"
+      },
+      "sequence_index": 0,
+      "timestamp_s": null,
+      "x_norm": 0.5,
+      "x_px": 49.5,
+      "y_norm": 0.5,
+      "y_px": 39.5
+    }
+  ],
+  "item_id": "scene-001:subject-01",
+  "model": {
+    "adapter_version": "0.1.0",
+    "checkpoint_id": "sha256:golden",
+    "model_id": "individualscanpath",
+    "model_variant": "chenlstm-osie",
+    "upstream_version": "50adc583144e910b2a520ca59f865e5581390938"
+  },
+  "native_artifacts": [],
+  "native_metadata": {
+    "model_observer_index": 0
+  },
+  "observer_id": "subject-01",
+  "request_id": "req_observer_golden",
+  "run_id": "golden-individual-v1",
+  "saliency_artifact": null,
+  "sample_id": "req_observer_golden:sample:0",
+  "sample_index": 0,
+  "schema_version": 1,
+  "seed": 51,
+  "stopping_reason": "model_stop",
+  "target_description": null,
+  "task_text": null,
+  "warnings": []
+}

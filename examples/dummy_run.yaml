@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "dummy-example-v1",
+  "model": {
+    "id": "dummy",
+    "variant": "deterministic-v1",
+    "options": {
+      "dummy": {
+        "explanation_prefix": "AVRW example"
+      }
+    },
+    "checkpoint_path": null,
+    "checkpoint_fingerprint": null,
+    "upstream_code_ref": "builtin",
+    "upstream_commit": null
+  },
+  "dataset": {
+    "id": "dummy-fixture",
+    "version": "1",
+    "split": "example",
+    "root": null,
+    "root_fingerprint": "configured:dummy-fixture-v1",
+    "items": [
+      {
+        "item_id": "fixture-001",
+        "image_ref": "fixtures/fixture-001.png",
+        "image_width": 640,
+        "image_height": 480
+      },
+      {
+        "item_id": "fixture-002",
+        "image_ref": "fixtures/fixture-002.png",
+        "image_width": 800,
+        "image_height": 600,
+        "task_text": "inspect the item-specific target"
+      }
+    ],
+    "item_subset": [
+      "fixture-001"
+    ]
+  },
+  "request": {
+    "task_text": "find the vehicle",
+    "target_description": null,
+    "observer_id": "synthetic-observer-1",
+    "observer_metadata": {
+      "source": "dummy-example"
+    },
+    "num_samples": 3,
+    "base_seed": 1000,
+    "seed_strategy": "increment_per_item",
+    "max_fixations": 3,
+    "time_horizon_s": 1.0
+  },
+  "device": "cpu",
+  "output_root": "../runs",
+  "run_policy": "create",
+  "tags": [
+    "example",
+    "dummy"
+  ],
+  "notes": "Dummy adapter only; no real model or dataset is loaded.",
+  "environment": {
+    "name": "local-cpu",
+    "image_digest": null
+  }
+}

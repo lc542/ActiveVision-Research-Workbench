@@ -1,0 +1,5 @@
+*.sif
+*.simg
+*.sandbox/
+apptainer-cache/
+apptainer-tmp/

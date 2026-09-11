@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "malformed",
+  "dataset_version": "fixture-v1",
+  "splits": {
+    "train": [
+      "broken-item"
+    ]
+  },
+  "items": [
+    {
+      "schema_version": 1,
+      "dataset_id": "malformed",
+      "dataset_version": "fixture-v1",
+      "official_split": "train",
+      "item_id": "broken-item",
+      "image_id": "broken",
+      "image_ref": "missing.svg",
+      "image_width": 100,
+      "image_height": 50
+    }
+  ]
+}

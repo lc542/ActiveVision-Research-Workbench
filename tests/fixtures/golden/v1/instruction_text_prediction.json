@@ -1,0 +1,60 @@
+{
+  "dataset_id": "golden_gaze",
+  "dataset_split": "test",
+  "explanation_text": "The gaze moves from the table to the yellow mug.",
+  "fixations": [
+    {
+      "confidence": 0.76,
+      "duration_s": 0.19,
+      "native_metadata": {
+        "explanation_text": "The table is inspected first."
+      },
+      "native_timing": {
+        "source": "duration sample",
+        "unit": "seconds"
+      },
+      "sequence_index": 0,
+      "timestamp_s": null,
+      "x_norm": 0.3,
+      "x_px": 29.7,
+      "y_norm": 0.7,
+      "y_px": 55.3
+    }
+  ],
+  "item_id": "instruction-0000",
+  "model": {
+    "adapter_version": "0.1.0",
+    "checkpoint_id": "sha256:golden",
+    "model_id": "gazexplain",
+    "model_variant": "joint-all",
+    "upstream_version": "443f4aaa1c53f6804a3a503cd2842c0b5d225da4"
+  },
+  "native_artifacts": [
+    {
+      "checksum": "sha256:gaze-text",
+      "kind": "gazexplain_native_sample",
+      "media_type": "application/json",
+      "metadata": {
+        "contains_raw_token_ids": true
+      },
+      "uri": "native/instruction-0000-sample-0000.json"
+    }
+  ],
+  "native_metadata": {
+    "raw_token_ids": [
+      [101, 2023, 102]
+    ]
+  },
+  "observer_id": null,
+  "request_id": "req_instruction_golden",
+  "run_id": "golden-gazexplain-v1",
+  "saliency_artifact": null,
+  "sample_id": "req_instruction_golden:sample:0",
+  "sample_index": 0,
+  "schema_version": 1,
+  "seed": 61,
+  "stopping_reason": "model_stop",
+  "target_description": "yellow mug",
+  "task_text": "Find the yellow mug",
+  "warnings": []
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "run_id": "scandiff-freeview-example",
+  "model": {
+    "id": "scandiff",
+    "variant": "free-viewing",
+    "options": {
+      "scandiff": {
+        "upstream_root": "../ScanDiff",
+        "task_embeddings_path": "../ScanDiff/data/task_embeddings.npy",
+        "feature_root": null,
+        "launcher": ["container/run_scandiff_worker.sh"],
+        "worker_timeout_s": 900,
+        "startup_timeout_s": 300,
+        "allow_feature_download": false,
+        "native_artifact_policy": "preserve-json"
+      }
+    },
+    "checkpoint_path": "../../../ScanDiff/checkpoints/scandiff_freeview.pth",
+    "checkpoint_fingerprint": null,
+    "upstream_code_ref": "https://github.com/aimagelab/ScanDiff.git",
+    "upstream_commit": "9eff26cf2df140c09b868e7351f02d3797a37d1f"
+  },
+  "dataset": {
+    "id": "local-single-image",
+    "version": null,
+    "split": "smoke",
+    "root": null,
+    "root_fingerprint": null,
+    "items": [
+      {
+        "item_id": "example-image",
+        "image_ref": "../ScanDiff/sample_images/dog.jpg",
+        "image_width": 800,
+        "image_height": 600,
+        "task_text": null,
+        "target_description": null,
+        "observer_id": null,
+        "observer_metadata": {}
+      }
+    ],
+    "item_subset": ["example-image"]
+  },
+  "request": {
+    "task_text": null,
+    "target_description": null,
+    "observer_id": null,
+    "observer_metadata": {},
+    "num_samples": 3,
+    "base_seed": 0,
+    "seed_strategy": "fixed_per_item",
+    "max_fixations": 16,
+    "time_horizon_s": null
+  },
+  "device": "cuda",
+  "output_root": "../../runs",
+  "run_policy": "create",
+  "tags": ["scandiff", "free-viewing"],
+  "notes": "Assumes ScanDiff is cloned beside ActiveVision-Research-Workbench; run from the repository root.",
+  "environment": {
+    "name": "scandiff-cu121-py310",
+    "image_digest": null
+  }
+}

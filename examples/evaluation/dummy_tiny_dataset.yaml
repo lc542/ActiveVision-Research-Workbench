@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "run_directory": "../../runs/dummy-tiny-dataset-v1",
+  "dataset": {
+    "adapter": "json",
+    "id": "tiny_gaze",
+    "version": "fixture-v1",
+    "root": "../../tests/fixtures/datasets/tiny_gaze",
+    "split": "train",
+    "task_type": "auto",
+    "options": {
+      "annotation_name": "annotations.json"
+    }
+  },
+  "metrics": [
+    {
+      "name": "fixation_count",
+      "parameters": {}
+    },
+    {
+      "name": "scanpath_length_normalized",
+      "parameters": {}
+    },
+    {
+      "name": "timestamp_span_s",
+      "parameters": {}
+    },
+    {
+      "name": "total_fixation_duration_s",
+      "parameters": {}
+    },
+    {
+      "name": "duration_mae_s",
+      "parameters": {}
+    },
+    {
+      "name": "tfp_auc",
+      "parameters": {
+        "max_fixations": 3,
+        "include_initial_fixation": true,
+        "normalization": "unit_interval"
+      }
+    },
+    {
+      "name": "endpoint_pairwise_distance_normalized",
+      "parameters": {}
+    },
+    {
+      "name": "endpoint_dispersion_normalized",
+      "parameters": {}
+    },
+    {
+      "name": "fixation_density_kde",
+      "parameters": {
+        "kernel": "gaussian",
+        "bandwidth_norm": 0.08,
+        "grid_width": 32,
+        "grid_height": 24
+      }
+    },
+    {
+      "name": "nss",
+      "parameters": {
+        "artifact_format": "dense_json"
+      }
+    }
+  ],
+  "sample_aggregation": {
+    "policy": "mean_std",
+    "standard_deviation": "population",
+    "confidence_interval": {
+      "method": "normal",
+      "level": 0.95
+    },
+    "best_of_n": {
+      "enabled": false,
+      "metrics": []
+    }
+  },
+  "observer_aggregation": {
+    "policy": "macro",
+    "include_micro": false,
+    "unknown_observer_policy": "separate"
+  },
+  "temporal_alignment": {
+    "policy": "truncate_to_shorter",
+    "unit": "seconds"
+  },
+  "coordinate_conversion": {
+    "policy": "canonical_pixel_center",
+    "out_of_bounds": "invalid"
+  },
+  "output_directory": "../../runs/dummy-tiny-dataset-v1/metrics",
+  "existing_output": "create"
+}

@@ -1,0 +1,27 @@
+{
+  "base_seed": 17,
+  "dataset_id": "golden_gaze",
+  "dataset_split": "test",
+  "image_height": 80,
+  "image_ref": "images/scene-001.png",
+  "image_width": 100,
+  "item_id": "scene-001",
+  "max_fixations": 3,
+  "model_id": "dummy",
+  "model_options": {
+    "dummy": {
+      "explanation_prefix": "Golden"
+    }
+  },
+  "model_variant": "deterministic-v1",
+  "num_samples": 1,
+  "observer_id": "observer-01",
+  "observer_metadata": {
+    "group": "golden"
+  },
+  "request_id": "req_5ba26594136f09d4fc87fae8be281baa92cbcb97d20a4532c7c3ccd240024ef3",
+  "schema_version": 1,
+  "target_description": "yellow mug",
+  "task_text": "Find the yellow mug",
+  "time_horizon_s": 1.0
+}

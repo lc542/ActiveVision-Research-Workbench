@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "dataset_id": "osie",
+  "model_variant": "chenlstm-osie",
+  "checkpoint_sha256": "sha256:ce89bf36d0b49f9cdc73ae408a66085b2286666d8d9b249aa7c126ac001f0e3e",
+  "identity_source": "OSIE eye/fixations.mat one-based subject-array position; upstream passes the zero-based subject field directly to nn.Embedding",
+  "observers": [
+    {"observer_id": "subject-01", "model_observer_index": 0, "known_checkpoint_observer": true},
+    {"observer_id": "subject-02", "model_observer_index": 1, "known_checkpoint_observer": true},
+    {"observer_id": "subject-03", "model_observer_index": 2, "known_checkpoint_observer": true},
+    {"observer_id": "subject-04", "model_observer_index": 3, "known_checkpoint_observer": true},
+    {"observer_id": "subject-05", "model_observer_index": 4, "known_checkpoint_observer": true},
+    {"observer_id": "subject-06", "model_observer_index": 5, "known_checkpoint_observer": true},
+    {"observer_id": "subject-07", "model_observer_index": 6, "known_checkpoint_observer": true},
+    {"observer_id": "subject-08", "model_observer_index": 7, "known_checkpoint_observer": true},
+    {"observer_id": "subject-09", "model_observer_index": 8, "known_checkpoint_observer": true},
+    {"observer_id": "subject-10", "model_observer_index": 9, "known_checkpoint_observer": true},
+    {"observer_id": "subject-11", "model_observer_index": 10, "known_checkpoint_observer": true},
+    {"observer_id": "subject-12", "model_observer_index": 11, "known_checkpoint_observer": true},
+    {"observer_id": "subject-13", "model_observer_index": 12, "known_checkpoint_observer": true},
+    {"observer_id": "subject-14", "model_observer_index": 13, "known_checkpoint_observer": true},
+    {"observer_id": "subject-15", "model_observer_index": 14, "known_checkpoint_observer": true}
+  ]
+}

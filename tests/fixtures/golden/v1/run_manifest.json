@@ -1,0 +1,93 @@
+{
+  "activevision_git": {
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "dirty": false
+  },
+  "configuration_hash": "sha256:golden-configuration-v1",
+  "counts": {
+    "failed": 0,
+    "skipped": 0,
+    "succeeded": 1,
+    "total": 1
+  },
+  "dataset": {
+    "id": "golden_gaze",
+    "root": {
+      "fingerprint": "sha256:golden-dataset-v1",
+      "fingerprint_method": "configured",
+      "path": "datasets/golden_gaze"
+    },
+    "selected_item_ids": [
+      "scene-001"
+    ],
+    "split": "test",
+    "version": "1"
+  },
+  "ended_at": "2026-01-01T00:01:00Z",
+  "environment": {
+    "cuda_version": null,
+    "cuda_visible_devices": null,
+    "gpu": null,
+    "host": "golden-host",
+    "image_digest": "sha256:golden-environment-v1",
+    "name": "golden-core",
+    "platform": "Linux-golden",
+    "python_executable": "python",
+    "python_version": "3.11.0",
+    "pytorch_version": null
+  },
+  "model": {
+    "adapter_version": "0.1.0",
+    "capabilities": {
+      "schema_version": 1,
+      "values": [
+        "fixation_duration_output",
+        "produces_scanpaths",
+        "stochastic_multi_sample"
+      ]
+    },
+    "checkpoint": {
+      "fingerprint": "sha256:golden-checkpoint-v1",
+      "fingerprint_method": "configured",
+      "path": "checkpoints/golden.bin"
+    },
+    "id": "scandiff",
+    "upstream_code_ref": "https://github.com/aimagelab/ScanDiff.git",
+    "upstream_commit": "9eff26cf2df140c09b868e7351f02d3797a37d1f",
+    "upstream_version": "9eff26cf2df140c09b868e7351f02d3797a37d1f",
+    "variant": "free-viewing"
+  },
+  "project": {
+    "name": "activevision-research-workbench",
+    "version": "0.1.0"
+  },
+  "resolved_configuration": {
+    "schema_version": 1
+  },
+  "resume": {
+    "attempts": 0,
+    "last_decision": null
+  },
+  "run_id": "golden-run-v1",
+  "schema_version": 1,
+  "seeds": {
+    "actual_per_request": {
+      "req_stochastic_golden": [
+        31,
+        32
+      ]
+    },
+    "configured_base_seed": 31,
+    "strategy": "fixed_per_item"
+  },
+  "slurm": {
+    "array_job_id": null,
+    "array_task_id": null,
+    "job_id": null,
+    "node_list": null,
+    "partition": null
+  },
+  "started_at": "2026-01-01T00:00:00Z",
+  "status": "completed",
+  "warnings": []
+}

@@ -1,0 +1,70 @@
+{
+  "dataset_id": "golden_gaze",
+  "dataset_split": "test",
+  "explanation_text": null,
+  "fixations": [
+    {
+      "confidence": null,
+      "duration_s": 0.1,
+      "native_metadata": {
+        "arrival_time_native": 100.0
+      },
+      "native_timing": {
+        "arrival_time": 100.0,
+        "inter_event_time": 100.0,
+        "scale_to_seconds": 0.001,
+        "unit": "milliseconds"
+      },
+      "sequence_index": 0,
+      "timestamp_s": 0.1,
+      "x_norm": 0.4,
+      "x_px": 39.6,
+      "y_norm": 0.5,
+      "y_px": 39.5
+    },
+    {
+      "confidence": null,
+      "duration_s": 0.15,
+      "native_metadata": {
+        "arrival_time_native": 250.0
+      },
+      "native_timing": {
+        "arrival_time": 250.0,
+        "inter_event_time": 150.0,
+        "scale_to_seconds": 0.001,
+        "unit": "milliseconds"
+      },
+      "sequence_index": 1,
+      "timestamp_s": 0.25,
+      "x_norm": 0.6,
+      "x_px": 59.4,
+      "y_norm": 0.4,
+      "y_px": 31.6
+    }
+  ],
+  "item_id": "scene-001",
+  "model": {
+    "adapter_version": "0.1.0",
+    "checkpoint_id": "sha256:golden",
+    "model_id": "tpp_gaze",
+    "model_variant": "transformer",
+    "upstream_version": "59cf572ba679b8e3351da29dbbbd2ff66bcfa552"
+  },
+  "native_artifacts": [],
+  "native_metadata": {
+    "native_time_unit": "milliseconds",
+    "temporal_scale_to_seconds": 0.001
+  },
+  "observer_id": null,
+  "request_id": "req_temporal_golden",
+  "run_id": "golden-tpp-v1",
+  "saliency_artifact": null,
+  "sample_id": "req_temporal_golden:sample:0",
+  "sample_index": 0,
+  "schema_version": 1,
+  "seed": 41,
+  "stopping_reason": "time_horizon",
+  "target_description": null,
+  "task_text": null,
+  "warnings": []
+}
